@@ -136,6 +136,11 @@ nav {
         z-index: 999;
         animation: slideDown 0.5s ease-in-out; /* Animation effect */
     }
+    .nav-username {
+        margin-right: 10px;
+        font-weight: 600;
+    }
+
 }
 
 /* Keyframes for slide down animation */

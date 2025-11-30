@@ -1,18 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const authtoken = sessionStorage.getItem("auth-token");
+  const email = sessionStorage.getItem("email");
+
+  let displayName = "";
+  if (email) {
+    displayName = email.split("@")[0];
+  }
+
   const handleClick = () => {
     const navLinks = document.querySelector(".nav__links");
     const navIcon = document.querySelector(".nav__icon i");
 
     if (!navLinks || !navIcon) return;
 
-    // Toggle the 'active' class on the navigation links
     navLinks.classList.toggle("active");
 
-    // Toggle the Font Awesome icons (bars and times)
     if (navLinks.classList.contains("active")) {
       navIcon.classList.remove("fa-bars");
       navIcon.classList.add("fa-times");
@@ -22,10 +30,20 @@ const Navbar = () => {
     }
   };
 
+  const handleLogout = () => {
+    sessionStorage.removeItem("auth-token");
+    sessionStorage.removeItem("name");
+    sessionStorage.removeItem("phone");
+    sessionStorage.removeItem("email");
+
+    navigate("/login");
+    window.location.reload();
+  };
+
   return (
     <nav>
       <div className="nav__logo">
-        <a href="/">
+        <Link to="/">
           StayHealthy
           <svg
             width="24"
@@ -42,31 +60,49 @@ const Navbar = () => {
             />
             <title>Heart Shape SVG icon</title>
           </svg>
-        </a>
+        </Link>
       </div>
 
       <div className="nav__icon" onClick={handleClick}>
         <i className="fa fa-times fa fa-bars"></i>
       </div>
+
       <ul className="nav__links active">
         <li className="link">
-            <Link to="/">Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li className="link">
-            <a href="/appointments">Appointments</a>
+          <a href="#services">Appointments</a>
         </li>
-        <li className="link">
-            <Link to="/signup">
-            <button className="btn1">Sign Up</button>
-            </Link>
-        </li>
-        <li className="link">
-            <Link to="/login">
-            <button className="btn1">Login</button>
-            </Link>
-        </li>
-        </ul>
 
+        {!authtoken && (
+          <>
+            <li className="link">
+              <Link to="/signup">
+                <button className="btn1">Sign Up</button>
+              </Link>
+            </li>
+            <li className="link">
+              <Link to="/login">
+                <button className="btn1">Login</button>
+              </Link>
+            </li>
+          </>
+        )}
+
+        {authtoken && (
+          <>
+            <li className="link">
+              <span className="nav-username">{displayName}</span>
+            </li>
+            <li className="link">
+              <button className="btn1" onClick={handleLogout}>
+                Logout
+              </button>
+            </li>
+          </>
+        )}
+      </ul>
     </nav>
   );
 };
