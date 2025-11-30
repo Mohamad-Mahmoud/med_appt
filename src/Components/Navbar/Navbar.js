@@ -72,7 +72,10 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </li>
         <li className="link">
-          <a href="#services">Appointments</a>
+          {/* <a href="#services">Appointments</a> */}
+            <li className="link">
+                <Link to="/instant-consultation">Consultation</Link>
+            </li>
         </li>
 
         {!authtoken && (
