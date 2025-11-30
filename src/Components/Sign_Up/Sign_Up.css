@@ -102,12 +102,15 @@
     border: none; /* Remove button borders */
     border-radius: 4px; /* Add border radius for rounded corners */
     cursor: pointer; /* Change cursor to pointer on hover */
+    display: inline-block;
+    width: auto;
 }
 
 /* Styles for primary button in the signup form */
 .btn-primary {
     background-color: #007bff; /* Set background color for primary button */
     color: #fff; /* Set text color for primary button */
+    margin-right: 10px;
 }
 
 /* Styles for danger button in the signup form */
