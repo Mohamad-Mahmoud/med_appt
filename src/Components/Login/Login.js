@@ -5,6 +5,7 @@ import { API_URL } from "../../config";
 
 const Login = () => {
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
@@ -51,6 +52,10 @@ const Login = () => {
     }
   };
 
+  const passwordIconSrc = showPassword
+    ? process.env.PUBLIC_URL + "/images/eye-open.svg"
+    : process.env.PUBLIC_URL + "/images/eye-closed.svg";
+
   return (
     <div>
       <div className="container">
@@ -86,18 +91,26 @@ const Login = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="password">Password</label>
-                <input
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  type="password"
-                  name="password"
-                  id="password"
-                  className="form-control"
-                  placeholder="Enter your password"
-                  aria-describedby="helpId"
-                  required
-                  minLength={6}
-                />
+                <div className="password-input-wrapper">
+                  <input
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    id="password"
+                    className="form-control"
+                    placeholder="Enter your password"
+                    aria-describedby="helpId"
+                    required
+                    minLength={6}
+                  />
+                  <img
+                    src={passwordIconSrc}
+                    alt={showPassword ? "Hide password" : "Show password"}
+                    className="password-toggle-icon"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                  />
+                </div>
               </div>
 
               <div className="btn-group">

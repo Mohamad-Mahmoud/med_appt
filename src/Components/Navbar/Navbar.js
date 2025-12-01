@@ -76,6 +76,14 @@ const Navbar = () => {
         </li>
 
         <li className="link">
+          <Link to="/">Health Blog</Link>
+        </li>
+
+        <li className="link">
+          <Link to="/reviews">Reviews</Link>
+        </li>
+
+        <li className="link">
           <Link to="/instant-consultation">Consultation</Link>
         </li>
 
