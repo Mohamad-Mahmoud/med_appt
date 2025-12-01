@@ -12,6 +12,7 @@ import Notification from "./Components/Notification/Notification";
 import ReviewForm from "./Components/ReviewForm/ReviewForm";
 import ProfileCard from "./Components/ProfileCard/ProfileCard";
 import ReportsLayout from "./Components/ReportsLayout/ReportsLayout";
+import HealthBlog from "./Components/HealthBlog/HealthBlog";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/reviews" element={<ReviewForm />} />  
             <Route path="/profile" element={<ProfileCard />} />
             <Route path="/reports" element={<ReportsLayout />} />
+            <Route path="/health-blog" element={<HealthBlog />} />
           </Routes>
         </Notification>
       </BrowserRouter>
