@@ -13,6 +13,7 @@ import ReviewForm from "./Components/ReviewForm/ReviewForm";
 import ProfileCard from "./Components/ProfileCard/ProfileCard";
 import ReportsLayout from "./Components/ReportsLayout/ReportsLayout";
 import HealthBlog from "./Components/HealthBlog/HealthBlog";
+import HealthTipsAndGuidance from "./Components/HealthTipsAndGuidance/HealthTipsAndGuidance";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/profile" element={<ProfileCard />} />
             <Route path="/reports" element={<ReportsLayout />} />
             <Route path="/health-blog" element={<HealthBlog />} />
+            <Route path="/health-tips" element={<HealthTipsAndGuidance />} />
           </Routes>
         </Notification>
       </BrowserRouter>
