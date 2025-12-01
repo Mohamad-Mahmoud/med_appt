@@ -5,8 +5,8 @@ function getApiUrl() {
       return "http://localhost:8181";
     }
 
-    if (hostname.includes("-3001")) {
-      const apiHost = hostname.replace("-3001", "-8181");
+    if (hostname.includes("-3000")) {
+      const apiHost = hostname.replace("-3000", "-8181");
       return `${protocol}//${apiHost}`;
     }
     return `${protocol}//${hostname}`;
