@@ -6,25 +6,24 @@
 /* Styling for the main navigation bar */
 nav {
     padding: 1.5rem;
-    position: fixed;
-    top: 0%;
-    left: 50%;
-    transform: translateX(-50%);
+    position: sticky;  
+    top: 0;            
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #fff;
+    z-index: 1000;
 }
 
 /* Styling for the dropdown menu */
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: 0;
+    right: 0;
     z-index: 1;
     display: none;
-    min-width: 120px;
+    min-width: 220px;
     padding: 8px 0;
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -45,8 +44,8 @@ nav {
 /* Styling for the items in the dropdown menu */
 .dropdown-menu li {
     display: block;
-    width: 150px;
-    padding:5px;
+    width: 100%;
+    padding: 5px;
 }
 
 /* Styling for links in the dropdown menu */
@@ -59,6 +58,11 @@ nav {
 /* Hover effect for links in the dropdown menu */
 .dropdown-menu li a:hover {
     color: #2190ff;
+}
+
+/* Username text */
+.nav-username {
+    font-weight: 600;
 }
 
 /* Styling for the logo in the navbar */
@@ -136,11 +140,10 @@ nav {
         z-index: 999;
         animation: slideDown 0.5s ease-in-out; /* Animation effect */
     }
+
     .nav-username {
         margin-right: 10px;
-        font-weight: 600;
     }
-
 }
 
 /* Keyframes for slide down animation */
@@ -161,6 +164,8 @@ nav {
     background-color: white;
     color: black;
     border-radius: 50px;
+    padding: 6px 18px;
+    cursor: pointer;
 }
 
 .btn1:hover {
@@ -171,17 +176,18 @@ nav {
 .btn2 {
     border: 2px solid #3685fb;
     background-color: white;
-    color: black;
+    color: #3685fb;
     border-radius: 50px;
-    height:30px;
-    display:flex; /* Align items and justify content */
-    align-items:center; /* Align items and justify content */
-    justify-content:center; /* Align items and justify content */
-    margin-top:3px; /* Margin from top */
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3px;
+    padding: 0 18px;
+    cursor: pointer;
 }
 
 .btn2:hover {
     background-color:#3685fb; /* Hover effect */
     color:white; /* Hover effect */
 }
-  

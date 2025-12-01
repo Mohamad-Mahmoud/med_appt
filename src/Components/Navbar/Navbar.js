@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
+import ProfileCard from "../ProfileCard/ProfileCard";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -11,6 +12,8 @@ const Navbar = () => {
   let displayName = "";
   if (email) {
     displayName = email.split("@")[0];
+    displayName =
+      displayName.charAt(0).toUpperCase() + displayName.slice(1);
   }
 
   const handleClick = () => {
@@ -71,11 +74,9 @@ const Navbar = () => {
         <li className="link">
           <Link to="/">Home</Link>
         </li>
+
         <li className="link">
-          {/* <a href="#services">Appointments</a> */}
-            <li className="link">
-                <Link to="/instant-consultation">Consultation</Link>
-            </li>
+          <Link to="/instant-consultation">Consultation</Link>
         </li>
 
         {!authtoken && (
@@ -95,11 +96,17 @@ const Navbar = () => {
 
         {authtoken && (
           <>
-            <li className="link">
-              <span className="nav-username">{displayName}</span>
+            <li className="link welcome-user">
+              <span className="nav-username">Welcome, {displayName}</span>
+              <ul className="dropdown-menu">
+                <li>
+                  <ProfileCard />
+                </li>
+              </ul>
             </li>
+
             <li className="link">
-              <button className="btn1" onClick={handleLogout}>
+              <button className="btn2" onClick={handleLogout}>
                 Logout
               </button>
             </li>
