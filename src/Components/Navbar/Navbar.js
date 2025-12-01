@@ -100,18 +100,22 @@ const Navbar = () => {
               <span className="nav-username">Welcome, {displayName}</span>
               <ul className="dropdown-menu">
                 <li>
-                  <ProfileCard />
+                  <Link to="/profile">Your Profile</Link>
+                </li>
+                <li>
+                  <Link to="/reports">Your Reports</Link>
                 </li>
               </ul>
             </li>
-
             <li className="link">
-              <button className="btn2" onClick={handleLogout}>
+              <button className="btn1" onClick={handleLogout}>
                 Logout
               </button>
             </li>
           </>
         )}
+
+
       </ul>
     </nav>
   );
