@@ -1,0 +1,35 @@
+.appointment-card {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: #2190ff;      
+  color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 16px 20px;
+  max-width: 320px;
+  z-index: 999;
+  font-family: "Poppins", sans-serif;
+}
+
+.appointment-card__title {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.appointment-card__line {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2px 0;
+  font-size: 14px;
+}
+
+.appointment-card__label {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.appointment-card__value {
+  font-weight: 400;
+}

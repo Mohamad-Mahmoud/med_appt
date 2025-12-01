@@ -14,19 +14,32 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
       if (confirmCancel) {
         setAppointment(null);
         setShowForm(false);
+        localStorage.removeItem("doctorData");
+        localStorage.removeItem(name);
+        
+        window.dispatchEvent(new Event("appointmentCancelled"));
       }
     } else {
       setShowForm(true);
     }
   };
 
+
   const handleAppointmentSubmit = (data) => {
     setAppointment(data);
     setShowForm(false);
+
+    const doctorInfo = { name, speciality, experience, ratings };
+    localStorage.setItem("doctorData", JSON.stringify(doctorInfo));
+    localStorage.setItem(name, JSON.stringify(data));
+
+    window.dispatchEvent(new Event("appointmentUpdated"));
+
     alert(
       `Appointment booked with ${name} on ${data.appointmentDate} at ${data.timeSlot}`
     );
   };
+
 
   return (
     <div className="doctor-card-container">
