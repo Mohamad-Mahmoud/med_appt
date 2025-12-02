@@ -79,12 +79,21 @@ const Navbar = () => {
         </li>
 
         <li className="link">
+          <Link to="/instant-consultation">Instant Consultation</Link>
+        </li>
+
+        <li className="link">
+          <Link to="/booking-consultation">Book Appointment</Link>
+        </li>
+
+        <li className="link">
           <Link to="/reviews">Reviews</Link>
         </li>
 
         <li className="link">
-          <Link to="/instant-consultation">Consultation</Link>
+          <Link to="/reports">Reports</Link>
         </li>
+
 
         {!authtoken && (
           <>
